@@ -1,0 +1,19 @@
+# Entorno virtual
+.venv/
+
+# Archivos compilados
+__pycache__/
+*.pyc
+
+# Variables de entorno
+.env
+
+# Configuración de VSCode
+.vscode/
+
+# Archivos temporales
+*.log
+
+# Sistema
+.DS_Store
+Thumbs.db
