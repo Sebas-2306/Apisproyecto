@@ -1,68 +1,119 @@
-{% extends 'layouts/base.html' %}
+{% extends "layouts/base.html" %}
 
 {% block titulo %}
-Inicio
+Dashboard
 {% endblock %}
 
 {% block contenido %}
 
-<div class="text-center mt-5">
+<h2 class="mb-4">
+    Dashboard
+</h2>
 
-    <h1 class="display-4">
-        Sistema de Gestión de Inventario
-    </h1>
+<p class="text-muted">
+    Bienvenido al Sistema de Gestión de Inventario.
+</p>
 
-    <p class="lead">
-        Bienvenido al sistema desarrollado con Flask.
-    </p>
+<div class="row g-4">
 
-    <hr>
+    <div class="col-md-4">
 
-    <div class="row mt-5">
+        <div class="card shadow border-0 h-100">
 
-        <div class="col-md-4">
+            <div class="card-body">
 
-            <div class="card shadow">
+                <h5>
 
-                <div class="card-body">
+                    <i class="bi bi-folder-fill text-primary"></i>
 
-                    <h4>📦 Productos</h4>
+                    Categorías
 
-                    <p>Administración de productos.</p>
+                </h5>
 
-                </div>
+                <hr>
 
-            </div>
+                <h1 class="display-4">
 
-        </div>
+                    {{ total_categorias }}
 
-        <div class="col-md-4">
+                </h1>
 
-            <div class="card shadow">
+                <a href="/categorias"
+                   class="btn btn-outline-primary">
 
-                <div class="card-body">
+                    Ver categorías
 
-                    <h4>📂 Categorías</h4>
-
-                    <p>Gestión de categorías.</p>
-
-                </div>
+                </a>
 
             </div>
 
         </div>
 
-        <div class="col-md-4">
+    </div>
 
-            <div class="card shadow">
+    <div class="col-md-4">
 
-                <div class="card-body">
+        <div class="card shadow border-0 h-100">
 
-                    <h4>🚚 Proveedores</h4>
+            <div class="card-body">
 
-                    <p>Administración de proveedores.</p>
+                <h5>
 
-                </div>
+                    <i class="bi bi-box-seam-fill text-success"></i>
+
+                    Productos
+
+                </h5>
+
+                <hr>
+
+                <h1 class="display-4">
+
+                    {{ total_productos }}
+
+                </h1>
+
+                <a href="/productos"
+                   class="btn btn-outline-success">
+
+                    Ver productos
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-4">
+
+        <div class="card shadow border-0 h-100">
+
+            <div class="card-body">
+
+                <h5>
+
+                    <i class="bi bi-exclamation-triangle-fill text-danger"></i>
+
+                    Stock Bajo
+
+                </h5>
+
+                <hr>
+
+                <h1 class="display-4">
+
+                    {{ stock_bajo }}
+
+                </h1>
+
+                <a href="/productos"
+                   class="btn btn-outline-danger">
+
+                    Revisar
+
+                </a>
 
             </div>
 
