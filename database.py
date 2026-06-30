@@ -1,3 +1,10 @@
+"""
+Módulo de conexión a la base de datos.
+
+Este archivo contiene la función encargada de establecer la conexión
+con la base de datos MySQL utilizada por el Sistema de Gestión de Inventario.
+"""
+
 import pymysql
 from config import Config
 
@@ -5,6 +12,9 @@ from config import Config
 def obtener_conexion():
     """
     Crea y devuelve una conexión con la base de datos MySQL.
+
+    Returns:
+        Connection: Objeto de conexión a la base de datos.
     """
 
     return pymysql.connect(

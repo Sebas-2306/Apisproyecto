@@ -1,10 +1,30 @@
+"""
+Sistema de Gestión de Inventario
+
+Evidencia: GA7-220501096-AA3
+
+Framework seleccionado: Flask
+
+Justificación:
+Se seleccionó Flask como framework para el desarrollo del proyecto web debido
+a que es un framework ligero, flexible y de fácil integración con Python y
+bases de datos MySQL. Además, permite organizar el proyecto mediante Blueprints,
+facilitando la implementación de una arquitectura por módulos, el mantenimiento
+del código y el desarrollo ágil de aplicaciones web.
+"""
+
 from flask import Flask, render_template
 from routes.categoria_routes import categoria_bp
 from routes.producto_routes import producto_bp
 
 from database import obtener_conexion
 app = Flask(__name__)
+"""
+Aplicación principal del sistema.
 
+Aquí se inicializa Flask y se registran los Blueprints
+correspondientes a cada módulo.
+"""
 app.secret_key = "inventario_sena_2026"
 
 app.register_blueprint(categoria_bp)

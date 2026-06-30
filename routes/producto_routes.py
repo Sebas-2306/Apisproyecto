@@ -2,10 +2,18 @@ from flask import Blueprint, render_template, request, redirect, url_for, flash
 from database import obtener_conexion
 
 producto_bp = Blueprint("producto", __name__)
+"""
+Blueprint del módulo Productos.
 
+Gestiona el registro, consulta, actualización
+y desactivación de productos del inventario.
+"""
 @producto_bp.route("/productos")
 def listar_productos():
-
+    """
+    Muestra el listado de productos activos
+    registrados en el sistema.
+    """
     conexion = obtener_conexion()
     cursor = conexion.cursor()
 
@@ -35,7 +43,10 @@ def listar_productos():
     )
 @producto_bp.route("/productos/nuevo")
 def nuevo_producto():
-
+    """
+    Muestra el formulario para registrar
+    un nuevo producto.
+    """
     conexion = obtener_conexion()
     cursor = conexion.cursor()
 
@@ -57,7 +68,10 @@ def nuevo_producto():
     )
 @producto_bp.route("/productos/guardar", methods=["POST"])
 def guardar_producto():
-
+    """
+    Registra un nuevo producto en la base
+    de datos.
+    """
     nombre = request.form["nombre"]
     descripcion = request.form["descripcion"]
     codigo_barras = request.form["codigo_barras"]
@@ -104,7 +118,13 @@ def guardar_producto():
     return redirect(url_for("producto.listar_productos"))
 @producto_bp.route("/productos/editar/<int:id_producto>")
 def editar_producto(id_producto):
+    """
+    Obtiene la información de un producto
+    para editarla.
 
+    Args:
+        id_producto (int): Identificador del producto.
+    """
     conexion = obtener_conexion()
     cursor = conexion.cursor()
 
@@ -135,7 +155,10 @@ def editar_producto(id_producto):
     )
 @producto_bp.route("/productos/actualizar", methods=["POST"])
 def actualizar_producto():
-
+    """
+    Actualiza la información de un producto
+    existente.
+    """
     id_producto = request.form["id_producto"]
     nombre = request.form["nombre"]
     descripcion = request.form["descripcion"]
@@ -183,7 +206,13 @@ def actualizar_producto():
     return redirect(url_for("producto.listar_productos"))
 @producto_bp.route("/productos/eliminar/<int:id_producto>")
 def eliminar_producto(id_producto):
+    """
+    Realiza la eliminación lógica de un producto
+    cambiando su estado a Inactivo.
 
+    Args:
+        id_producto (int): Identificador del producto.
+    """
     conexion = obtener_conexion()
     cursor = conexion.cursor()
 
