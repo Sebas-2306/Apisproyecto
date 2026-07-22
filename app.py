@@ -18,6 +18,7 @@ from routes.categoria_routes import categoria_bp
 from routes.producto_routes import producto_bp
 from routes.usuario_api import usuario_api_bp
 from routes.categoria_api import categoria_api_bp
+from routes.producto_api import producto_api_bp
 from flask_cors import CORS
 
 app = Flask(__name__)
@@ -36,6 +37,7 @@ app.register_blueprint(categoria_bp)
 app.register_blueprint(producto_bp)
 app.register_blueprint(categoria_api_bp)
 app.register_blueprint(usuario_api_bp)
+app.register_blueprint(producto_api_bp)
 @app.route("/")
 def inicio():
 
