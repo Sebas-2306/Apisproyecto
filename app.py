@@ -16,6 +16,7 @@ del código y el desarrollo ágil de aplicaciones web.
 from flask import Flask, render_template
 from routes.categoria_routes import categoria_bp
 from routes.producto_routes import producto_bp
+from routes.usuario_api import usuario_api_bp
 from routes.categoria_api import categoria_api_bp
 from flask_cors import CORS
 
@@ -34,6 +35,7 @@ app.secret_key = "inventario_sena_2026"
 app.register_blueprint(categoria_bp)
 app.register_blueprint(producto_bp)
 app.register_blueprint(categoria_api_bp)
+app.register_blueprint(usuario_api_bp)
 @app.route("/")
 def inicio():
 
